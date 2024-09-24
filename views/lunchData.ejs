@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show lunch data</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        form {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include("navbar")%>
+        <%- include("header")%>
+            <%- include("footer")%>
+                <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
+                    data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+                    <div
+                        class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="row justify-content-center">
+
+                                <div class="card mb-0">
+                                    <div class="card-body">
+                                        <div class="container">
+                                            <form action="">
+                                                <input type="text" name="search" id="search"
+                                                    placeholder="search here !">
+                                                <input type="submit" value="search">
+                                            </form>
+                                           
+                                            <table class="table table-border text-center shadow">
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>Lunch name</th>
+                                                    <th>price</th>
+                                                    <th>description</th>
+                                                    <th>Lunch image</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                                <% lunch.forEach((l)=>{ %>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <%=l._id %>
+                                                        </td>
+                                                        <td align="center">
+                                                            <%=l.lunch_name %>
+                                                        </td>
+                                                        <td align="center">
+                                                            <%=l.price %>
+                                                        </td>
+                                                        <td align="center">
+                                                            <%=l.description %>
+                                                        </td>
+                                                        <td><img src="./image/<%=l.lunch_image %>" alt="not found" height="60px" width="90px"></td>
+                                                        <td><a href="/deleteLunch/<%=l._id %>" class="btn btn-danger">delete</a></td>
+
+                                                    </tr>
+                                                    <% }) %>
+
+                                            </table>
+                                            <%
+                                            for(let j = 1; j<=totalPages; j++){
+                                            %>
+                                           <a href="?page=<%= j %>"><button class="btn btn-primary"><%= j %></button></a>
+                                           <%
+                                            }
+                                           %>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>approved Pdf</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    img {
+      float: right;
+    }
+  </style>
+</head>
+
+<body>
+  <%- include("navbar")%>
+        <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+          data-sidebar-position="fixed" data-header-position="fixed">
+          <div
+            class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center justify-content-center">
+              <div class="row justify-content-center">
+                <div class="card mb-0">
+                  <div class="card-body">
+                    <%=dt%>
+                    <img src="./assets/images/klassy-logo.png" alt="Not found" id="logo">
+                    <table class="table table-border text-center shadow">
+                      <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Guests</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <!-- <th>Message</th> -->
+                        <th>status</th>
+                      </tr>
+                      <% pdf.forEach((p)=>{ %>
+                        <tr>
+                          <td align="center">
+                            <%=p.name %>
+                          </td>
+                          <td align="center">
+                            <%=p.email %>
+                          </td>
+                          <td align="center">
+                            <%=p.phone %>
+                          </td>
+                          <td align="center">
+                            <%=p.guests %>
+                          </td>
+                          <td align="center">
+                            <%=p.date %>
+                          </td>
+                          <td align="center">
+                            <%=p.time %>
+                          </td>
+                         
+                          <td align="center">
+                            <%=p.status %>
+                          </td>
+                        </tr>
+                        <% }) %>
+                        
+                    </table>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Dinner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <%- include("navbar")%>
+        <%- include("header")%>
+            <%- include("footer")%>
+                <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
+                    data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+                    <div
+                        class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="row justify-content-center">
+
+                                <div class="card mb-0">
+                                    <div class="card-body">
+                                        <form action="/Adddinner" method="POST" enctype="multipart/form-data">
+
+                                            <% if(dinner.length> 0){%>
+                                                <div class="alert alert-success">
+                                                    <%= dinner %>
+                                                </div>
+                                                <%}%>
+                                                    <table>
+                                                        <tr
+                                                            class="table table-border table-bordered text-center shadow">
+                                                            <th>dinner name</th>
+                                                            <th>price</th>
+                                                            <th>description</th>
+                                                            <th>dinner image</th>
+                                                            <th>Add</th>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" name="dinner_name" id="dinner_name">
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" name="price" id="price">
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" name="description" id="description">
+                                                            </td>
+                                                            <td>
+                                                                <input type="file" name="dinner_image"
+                                                                    id="dinner_image">
+                                                            </td>
+                                                            <td>
+                                                                <input type="submit" value="Add" class="btn btn-success"
+                                                                    id="submit" name="submit" />
+
+                                                            </td>
+                                                        </tr>
+
+
+                                                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+</body>
+
+</html>
